@@ -70,7 +70,14 @@ export class ShopItem {
                 itemAttribute = currentItem.locator('div.product-item-actions a.tocompare');
                 break;
 
-}
+            }
         return itemAttribute;
+    }
+
+    async addToCart(itemNo: number) {
+        await this.setItem(itemNo).hover();
+        await this.getItemAttribute(itemNo, 'size').getByText('XS').click();
+        await this.getItemAttribute(itemNo, 'color').locator('div.swatch-option.color').click()
+        await this.getItemAttribute(itemNo, 'addCart').click()
     }
 }

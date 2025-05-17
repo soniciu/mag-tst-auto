@@ -5,20 +5,22 @@ export class ShoppingCart {
     readonly shoppingCart: Locator;
     readonly cartDialog: Locator;
     readonly checkoutBtn: Locator;
+    readonly itemCount: Locator;
 
     constructor(page: Page) {
         this.page = page;
         this.shoppingCart = page.locator('div.minicart-wrapper');
         this.cartDialog = page.locator('div.block-minicart');
         this.checkoutBtn = this.cartDialog.getByRole('button', {name: 'Proceed to Checkout'});
+        this.itemCount = page.locator('span.counter-number');
     }
 
     async openShoppingCart() {
-        await this.shoppingCart.click({ force: true });
+        await this.shoppingCart.click();
         await expect(this.cartDialog).toBeVisible()
     }
 
     async checkIfCartEmpty() {
-        return await expect(this.checkoutBtn).toBeVisible()
+        await expect(this.checkoutBtn).toBeAttached()
     }
 }

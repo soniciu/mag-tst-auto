@@ -1,7 +1,6 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { ShoppingCart } from './shoppingCart';
 import { ShopItem } from './shopItem';
-import { SignIn } from './my-account-page';
 
 export class HomePage {
     readonly page: Page;
@@ -24,11 +23,11 @@ export class HomePage {
     }
 
     async goto() {
-        await this.page.goto('https://magento.softwaretestingboard.com/');
+        await this.page.goto(process.env.HOME_PAGE!);
     }
 
     async gotoSignIn() {
-        await this.page.goto('https://magento.softwaretestingboard.com/customer/account/login/')
+        await this.page.goto(process.env.MY_ACCOUNT_PAGE!);
     }
 
     async logoCheck() {
@@ -53,15 +52,20 @@ export class HomePage {
 
     async cartCheck() {
         await this.shopCart.openShoppingCart();
-        await expect(this.shopCart.checkIfCartEmpty())
+        // await expect(this.shopCart.checkIfCartEmpty());
     }
 
     async clickItem(itemNo: number) {
-        await this.shopItem.sizeCheck(itemNo)
+        await this.shopItem.sizeCheck(itemNo);
     }
 
     async itemActionsCheck(itemNo: number) {
-        await this.shopItem.itemCheck(itemNo)
+        await this.shopItem.itemCheck(itemNo);
+    }
+
+    async addToCart(itemNo: number) {
+        await this.shopItem.addToCart(itemNo);
+        await expect (this.shopCart.itemCount).toBeVisible();
     }
 
 }

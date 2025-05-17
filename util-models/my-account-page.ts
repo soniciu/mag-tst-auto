@@ -1,6 +1,6 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 
-export class SignIn {
+export class MyAccount {
     readonly page: Page;
     readonly email: Locator;
     readonly password: Locator;
@@ -17,8 +17,8 @@ export class SignIn {
     }
 
     async signInWithAcc() {
-        await this.email.fill(process.env.USER_NAME);
-        await this.password.fill(process.env.PASSWORD);
+        await this.email.fill(process.env.USER_NAME!);
+        await this.password.fill(process.env.PASSWORD!);
         await this.signInBtn.click();
     }
 
