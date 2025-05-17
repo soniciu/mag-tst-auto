@@ -1,0 +1,1 @@
+# mag-tst-auto
