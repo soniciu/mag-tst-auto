@@ -1,1 +1,54 @@
 # mag-tst-auto
+
+This is a repository containing automation tests for a sample website: https://magento.softwaretestingboard.com/
+
+The scope is limited to regression a regression set as per the assignment. Below you can find a rough outline of the tests structure:
+- Homepage:
+  - Access page and ensure primary elements are loaded and visible:
+    - Main logo
+    - Banner
+    - Items
+    - Menu items and dropdowns
+    - Shopping cart
+    - Search bar
+    - Header content
+    - Footer content
+  - Store item functionality:
+    - Select Size
+    - Select Color
+    - Add to cart
+    - Add to comparison
+    - Add to wishlist
+    - Item page redirect
+    - Reviews redirect
+- Item page:
+  - Select Size
+  - Select Color
+  - Add to cart
+  - Add to comparison
+  - Add to wishlist
+  - Info tabs
+  - Related products visible
+  - Breadcrumbs
+  - Add review
+- Sign in flow:
+  - Sign in with existing user
+  - Sign in with incorrect data
+  - Redirect to sign up  
+- Sign up flow:
+  - Sign up happy path
+  - Sign up with incorrect data
+- Shopping cart:
+  - Open/close
+  - Add item
+  - Remove item
+  - Edit quantity
+  - Check item details
+  - Redirect to shopping cart page
+  - Proceed to checkout
+- Checkout flow:
+  - User logged in - complete form
+  - Guest user - complete form
+- Payment flow:
+  - Happy path - complete purchase
+  - Sad path - cancel purchase
