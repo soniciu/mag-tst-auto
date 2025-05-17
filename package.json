@@ -1,0 +1,29 @@
+{
+  "name": "mag-tst-auto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "playwright": "^1.52.0",
+    "playwright-core": "^1.52.0",
+    "undici-types": "^6.21.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.18"
+  },
+  "scripts": {
+    "fe:tests": "npx playwright test --ui"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soniciu/mag-tst-auto.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soniciu/mag-tst-auto/issues"
+  },
+  "homepage": "https://github.com/soniciu/mag-tst-auto#readme"
+}
