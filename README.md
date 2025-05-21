@@ -1,54 +1,20 @@
-# mag-tst-auto
+# Test automation assignment
 
 This is a repository containing automation tests for a sample website: https://magento.softwaretestingboard.com/
 
-The scope is limited to regression a regression set as per the assignment. Below you can find a rough outline of the tests structure:
-- Homepage:
-  - Access page and ensure primary elements are loaded and visible:
-    - Main logo
-    - Banner
-    - Items
-    - Menu items and dropdowns
-    - Shopping cart
-    - Search bar
-    - Header content
-    - Footer content
-  - Store item functionality:
-    - Select Size
-    - Select Color
-    - Add to cart
-    - Add to comparison
-    - Add to wishlist
-    - Item page redirect
-    - Reviews redirect
-- Item page:
-  - Select Size
-  - Select Color
-  - Add to cart
-  - Add to comparison
-  - Add to wishlist
-  - Info tabs
-  - Related products visible
-  - Breadcrumbs
-  - Add review
-- Sign in flow:
-  - Sign in with existing user
-  - Sign in with incorrect data
-  - Redirect to sign up  
-- Sign up flow:
-  - Sign up happy path
-  - Sign up with incorrect data
-- Shopping cart:
-  - Open/close
-  - Add item
-  - Remove item
-  - Edit quantity
-  - Check item details
-  - Redirect to shopping cart page
-  - Proceed to checkout
-- Checkout flow:
-  - User logged in - complete form
-  - Guest user - complete form
-- Payment flow:
-  - Happy path - complete purchase
-  - Sad path - cancel purchase
+The scope is limited to regression test plan scenarios focused on the order placement process as per the assignment. Below you can find a rough outline of the tests structure:
+- Homepage sanity check
+- Checkout item from homepage
+- Checkout item directly from an item page
+- Complete purchase process while logged in
+- Complete purchase process while guest -> For some reason the dropdowns are not found by the engine so the tests are implemented, but are skipped
+
+# Running the tests
+
+Assuming you have npm installed, you can:
+- Pull the repo
+- Run ```npm install
+- For running tests in the playwright UI, run ```npm run fe:tests:ui
+- For running tests headless, run ```npm run fe:tests
+
+NOTE: .env file is tracked in order to have access to current variables. Good practice dictates it should not be, it was only done for easier evaluation of the assignment

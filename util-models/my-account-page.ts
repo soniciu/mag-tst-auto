@@ -16,6 +16,7 @@ export class MyAccount {
         this.myAccHead = page.locator('h1').getByText('My Account');
     }
 
+    // Sign in using env variables, stored in the .env file in the project
     async signInWithAcc() {
         await this.email.fill(process.env.USER_NAME!);
         await this.password.fill(process.env.PASSWORD!);

@@ -25,14 +25,17 @@ export class HomePage {
         this.checkout = new CheckoutPage(page);
     }
 
+    // Navigate to homepage
     async goto() {
         await this.page.goto(process.env.HOME_PAGE!);
     }
 
+    // Navigate to the sign in page
     async gotoSignIn() {
         await this.page.goto(process.env.MY_ACCOUNT_PAGE!);
     }
 
+    // Methods for sanity checks for the homepage
     async logoCheck() {
         await expect(this.mainLogo).toBeVisible();
     }
@@ -65,14 +68,22 @@ export class HomePage {
         await this.shopItem.itemCheck(itemNo);
     }
 
+    // Add item to cart, by using the shopping cart model
     async addToCart(itemNo: number) {
         await this.shopItem.addToCart(itemNo);
         await expect (this.shopCart.itemCount).toBeVisible();
     }
 
+    // Complete the purchase process as a guest
     async purchaseNoLogin() {
         await this.shopCart.gotoCheckout();
         await this.checkout.checkoutStepOne();
         await this.checkout.checkoutStepTwo();
+    }
+
+    // Complete the purchase process while logged in
+    async purchaseWithLogin() {
+        await this.shopCart.gotoCheckout();
+        await this.checkout.checkoutLoggedIn();
     }
 }

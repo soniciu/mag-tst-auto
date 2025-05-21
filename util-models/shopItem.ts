@@ -24,6 +24,8 @@ export class ShopItem {
         await expect(this.itemSize).toBeVisible();
     }
 
+    // Implemented a more generic attribute getter, 
+    // in order to be able to select any item on the page
     async itemCheck(itemNo: number) {
         await this.setItem(itemNo).hover();
         await expect(this.getItemAttribute(itemNo, 'size')).toBeVisible();
@@ -74,6 +76,8 @@ export class ShopItem {
         return itemAttribute;
     }
 
+    // Add an item to the cart. Use itemNo to choose which item to add
+    // itemNo is the index of the item on the page, starting at 0
     async addToCart(itemNo: number) {
         await this.setItem(itemNo).hover();
         await this.getItemAttribute(itemNo, 'size').getByText('XS').click();
