@@ -1,6 +1,7 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { ShoppingCart } from './shoppingCart';
 import { ShopItem } from './shopItem';
+import { CheckoutPage } from '../util-models/checkout';
 
 export class HomePage {
     readonly page: Page;
@@ -10,6 +11,7 @@ export class HomePage {
     readonly navBar: Locator;
     readonly shopCart: ShoppingCart;
     readonly shopItem: ShopItem;
+    readonly checkout: CheckoutPage;
     readonly myAcc: Locator
 
     constructor(page: Page) {
@@ -20,6 +22,7 @@ export class HomePage {
         this.navBar = page.locator('nav ul#ui-id-2');
         this.shopCart = new ShoppingCart(page);
         this.shopItem = new ShopItem(page);
+        this.checkout = new CheckoutPage(page);
     }
 
     async goto() {
@@ -52,7 +55,6 @@ export class HomePage {
 
     async cartCheck() {
         await this.shopCart.openShoppingCart();
-        // await expect(this.shopCart.checkIfCartEmpty());
     }
 
     async clickItem(itemNo: number) {
@@ -68,4 +70,9 @@ export class HomePage {
         await expect (this.shopCart.itemCount).toBeVisible();
     }
 
+    async purchaseNoLogin() {
+        await this.shopCart.gotoCheckout();
+        await this.checkout.checkoutStepOne();
+        await this.checkout.checkoutStepTwo();
+    }
 }

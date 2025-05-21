@@ -6,6 +6,7 @@ export class ShoppingCart {
     readonly cartDialog: Locator;
     readonly checkoutBtn: Locator;
     readonly itemCount: Locator;
+    readonly progressBar: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -13,14 +14,21 @@ export class ShoppingCart {
         this.cartDialog = page.locator('div.block-minicart');
         this.checkoutBtn = this.cartDialog.getByRole('button', {name: 'Proceed to Checkout'});
         this.itemCount = page.locator('span.counter-number');
+        this.progressBar = page.locator('ul.opc-progress-bar')
     }
 
     async openShoppingCart() {
         await this.shoppingCart.click();
-        await expect(this.cartDialog).toBeVisible()
+        await expect(this.cartDialog).toBeVisible();
     }
 
     async checkIfCartEmpty() {
-        await expect(this.checkoutBtn).toBeAttached()
+        await expect(this.checkoutBtn).toBeAttached();
+    }
+
+    async gotoCheckout() {
+        await this.shoppingCart.click();
+        await this.checkoutBtn.click();
+        await expect(this.progressBar).toBeVisible();
     }
 }

@@ -77,7 +77,7 @@ export class ShopItem {
     async addToCart(itemNo: number) {
         await this.setItem(itemNo).hover();
         await this.getItemAttribute(itemNo, 'size').getByText('XS').click();
-        await this.getItemAttribute(itemNo, 'color').locator('div.swatch-option.color').click()
-        await this.getItemAttribute(itemNo, 'addCart').click()
+        await this.getItemAttribute(itemNo, 'color').locator('div.swatch-option.color').nth(0).click();
+        await this.getItemAttribute(itemNo, 'addCart').click();
     }
 }
