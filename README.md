@@ -13,8 +13,8 @@ The scope is limited to regression test plan scenarios focused on the order plac
 
 Assuming you have npm installed, you can:
 - Pull the repo
-- Run ```npm install
-- For running tests in the playwright UI, run ```npm run fe:tests:ui
-- For running tests headless, run ```npm run fe:tests
+- Run ```npm install```
+- For running tests in the playwright UI, run ```npm run fe:tests:ui```
+- For running tests headless, run ```npm run fe:tests```
 
 NOTE: .env file is tracked in order to have access to current variables. Good practice dictates it should not be, it was only done for easier evaluation of the assignment
