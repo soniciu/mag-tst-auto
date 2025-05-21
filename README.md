@@ -13,7 +13,7 @@ The scope is limited to regression test plan scenarios focused on the order plac
 
 Assuming you have npm installed, you can:
 - Pull the repo
-- Run ```npm install```
+- From the project directory run ```npm install```
 - For running tests in the playwright UI, run ```npm run fe:tests:ui```
 - For running tests headless, run ```npm run fe:tests```
 
